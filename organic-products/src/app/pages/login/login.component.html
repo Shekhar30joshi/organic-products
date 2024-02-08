@@ -1,0 +1,29 @@
+<div class="container w-50 p-5">
+    <h2 class="text-center py-2" style="font-size: 45px;font-family: cursive;">LOG IN</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate autocomplete="new-email">
+        <div class="form-group py-3">
+            <label for="exampleInputEmail1" class="py-2">Email address</label>
+            <input autocomplete="new-email" type="email" class="form-control" formControlName="email"
+                placeholder="Enter email">
+            <small class="form-text text-danger"
+                *ngIf="loginForm.controls?.['email']?.touched && loginForm.controls?.['email']?.errors?.['required']">
+                Please enter email address.!
+            </small>
+            <small class="form-text text-danger"
+                *ngIf="loginForm.controls?.['email']?.touched && loginForm.controls?.['email']?.['errors']?.['email']">
+                Email address invalid!
+            </small>
+        </div>
+
+        <div class="form-group py-3">
+            <label for="exampleInputPassword1" class="py-2">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        </div>
+        <div class="form-group py-1 text-end">
+            <a href="" style="color:black;">Forgot Password?</a>
+        </div>
+        <div class="form-group py-3">
+            <button type="submit" class="btn w-100" style="color:white;background:#191a1a;height:55px;" [disabled]="!loginForm.valid">LOG IN</button>
+        </div>
+    </form>
+</div>

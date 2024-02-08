@@ -1,0 +1,19 @@
+ul> li> a {
+    font-weight: 600;
+    font-size: 16px;
+    // color: black;
+}
+
+input, input:focus{
+    box-shadow: none;
+}
+
+nav {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}   
+
+.active { 
+    border-bottom: solid; 
+}
