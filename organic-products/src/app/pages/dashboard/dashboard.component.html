@@ -8,19 +8,23 @@
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 col-xs-2">
             <div id="list-example" class="list-group" style="position: sticky;top: 57px;">
                 <a class="list-group-item list-group-item-action" style="background-color: #e7eaec;"><b>Category :</b></a>
-                <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-                <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-                <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-                <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+                <!-- <a class="list-group-item list-group-item-action" href="#list-item-11">Item 1</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-21">Item 2</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-31">Item 3</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-41">Item 4</a> -->
+                <a class="list-group-item list-group-item-action">Item 1</a>
+                <a class="list-group-item list-group-item-action">Item 2</a>
+                <a class="list-group-item list-group-item-action">Item 3</a>
+                <a class="list-group-item list-group-item-action">Item 4</a>
             </div>
         </div>
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-10 col-xs-10">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
                 class="scrollspy-example" tabindex="0">
                 <h4 class="py-3">Item 1</h4>
-                <div class="row" id="list-item-1">
+                <div class="row" id="list-item-11">
                     <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 p-3" *ngFor="let item of products">
-                        <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;">
+                        <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;" (click)="openDialog(item)">
                             <p class="px-2"
                                 style="width:fit-content;height:30px;background-color: black;color:white;position: absolute;right: 0;">
                                 {{item?.discount}}% off</p>
@@ -36,7 +40,7 @@
                     </div>
                 </div>
                 <h4 class="py-3">Item 2</h4>
-                <div class="row" id="list-item-2">
+                <div class="row" id="list-item-21">
                     <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 p-3" *ngFor="let item of products">
                         <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;">
                             <p class="px-2"
@@ -54,7 +58,7 @@
                     </div>
                 </div>
                 <h4 class="py-3">Item 3</h4>
-                <div class="row" id="list-item-3">
+                <div class="row" id="list-item-31">
                     <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 p-3" *ngFor="let item of products">
                         <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;">
                             <p class="px-2"
@@ -72,7 +76,7 @@
                     </div>
                 </div>
                 <h4 class="py-3">Item 4</h4>
-                <div class="row" id="list-item-4">
+                <div class="row" id="list-item-41">
                     <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 p-3" *ngFor="let item of products">
                         <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;">
                             <p class="px-2"

@@ -1,0 +1,70 @@
+<div class="container" style="width:700px;overflow-y:scroll;height:580px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-end my-2">
+                <i class="fa fa-close" style="font-size:24px;color:black;cursor: pointer;" (click)="close()"></i>
+            </div>
+            <div class="p-2" *ngIf="allCost"
+                style="position: sticky;top: 0;z-index: 10;background-color: black;height:35px;color:white;">
+                <p>Total Cost : <b>{{allCost | currency:'INR'}}</b></p>
+            </div>
+
+            <div class="card" style="background: #a7a9aa;;cursor:pointer;transition:all .8s ease-in-out;height:520px;">
+                <p class="px-2"
+                    style="width:fit-content;height:30px;background-color: black;color:white;position: absolute;right: 0;">
+                    {{data?.discount}}% off</p>
+                <div class="card-body">
+                    <ngb-carousel class="mt-3" [showNavigationIndicators]="false">
+                        <ng-template ngbSlide *ngFor="let event of data?.imgSet">
+                            <img [src]="event" class="img-fluid" style="height: 520px;width: -webkit-fill-available;">
+                            <!-- <img [src]="data?.imgUrl" alt="" class="img-fluid" style="height: 520px;width: -webkit-fill-available;"> -->
+                            <!-- <div class="carousel-caption">
+                            <h3>{{ event.eventLocation }}</h3>
+                            <p [innerText]="event.eventDescription"></p>
+                          </div> -->
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+            <span class="m-1">
+                <p class="text-center mb-0"><b>{{data?.name}}</b></p>
+                <p class="text-center mb-0" style="opacity: 0.7;">{{data?.category}}</p>
+                <p class="text-center mb-0">{{data?.cost | currency:'INR'}} / item</p>
+            </span>
+            <div class="">
+                <button class="btn btn-success" type="button" (click)="addItem(data?.cost)">
+                    <i class="fa fa-solid fa-plus mx-2"></i>Add</button>
+                <button [disabled]="count == 0" class="btn btn-danger ms-4" type="button"
+                    (click)="removeCount(data?.cost)">
+                    <i class="fa fa-solid fa-minus mx-2"></i>Remove</button>
+                <br>
+                <div style="background-color: #e7eaec;" class="p-2 mt-3 rounded">
+                    <p>Items : <b>{{count}}</b></p>
+                    <p>Total Cost : <b> {{totalCost | currency:'INR'}}</b></p>
+                </div>
+                <hr class="mt-3">
+                <div>
+                    <p class="text-center" style="font-size: 16px;font-weight: 600;">OVERVIEW</p>
+                    <p class="text-center" style="font-style: italic;">{{data?.overview}}</p>
+                </div>
+                <hr class="mt-3">
+                <div>
+                    <p class="text-center" style="font-size: 16px;font-weight: 600;">INGREDIENTS</p>
+                    <p class="text-center" style="font-style: italic;">{{data?.ingredients}}</p>
+                </div>
+                <hr class="mt-3">
+                <div class="text-center">
+                    <p style="font-size: 16px;font-weight: 600;">REVIEWS</p>
+                    <p style="font-style: italic;">{{data?.review}} / 5</p>
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                        <li  [ngClass]="{'selected': (star <= data?.review)}">
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                </div>
+                <button [disabled]="count == 0" class="btn btn-success mt-2" style="width: -webkit-fill-available;"
+                    type="button" (click)="buyItems()">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
