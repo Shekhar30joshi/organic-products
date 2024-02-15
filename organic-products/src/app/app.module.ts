@@ -14,6 +14,7 @@ import { AddProductComponent } from './pages/dashboard/add-product/add-product.c
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './pages/dashboard/add-product/cart/cart.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     LoginComponent,
     AboutUsComponent,
-    AddProductComponent
+    AddProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

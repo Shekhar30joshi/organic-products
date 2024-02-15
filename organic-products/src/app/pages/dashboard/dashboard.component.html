@@ -1,13 +1,20 @@
 <div class="container">
-    <div class="row py-4">
-        <div class="col-12 text-center">
+    <div class="row py-4 align-items-baseline">
+        <div class="col-10 text-center">
             <h1>All Products</h1>
+        </div>
+        <div class="col-2 text-end align-items-baseline">
+            <i class="fa fa-shopping-cart" [routerLink]="['/cart']" [ngClass]="{'count-color': totalCount}" style="color:#848494;font-size:40px;cursor: pointer;"><span class="px-2 mx-2" *ngIf="totalCount"
+                    style="background: #e5e5e6;;color: black;border-radius: 30px;width: 20px;display: inline-table;">
+                    {{totalCount}}
+                </span></i>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 col-xs-2">
             <div id="list-example" class="list-group" style="position: sticky;top: 57px;">
-                <a class="list-group-item list-group-item-action" style="background-color: #e7eaec;"><b>Category :</b></a>
+                <a class="list-group-item list-group-item-action" style="background-color: #e7eaec;"><b>Category
+                        :</b></a>
                 <!-- <a class="list-group-item list-group-item-action" href="#list-item-11">Item 1</a>
                 <a class="list-group-item list-group-item-action" href="#list-item-21">Item 2</a>
                 <a class="list-group-item list-group-item-action" href="#list-item-31">Item 3</a>
@@ -24,7 +31,8 @@
                 <h4 class="py-3">Item 1</h4>
                 <div class="row" id="list-item-11">
                     <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 p-3" *ngFor="let item of products">
-                        <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;" (click)="openDialog(item)">
+                        <div class="card" style="background: #e7eaec;cursor:pointer;transition:all .8s ease-in-out;"
+                            (click)="openDialog(item)">
                             <p class="px-2"
                                 style="width:fit-content;height:30px;background-color: black;color:white;position: absolute;right: 0;">
                                 {{item?.discount}}% off</p>

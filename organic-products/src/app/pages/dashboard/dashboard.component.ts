@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddProductComponent } from './add-product/add-product.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,20 @@ import { MatDialog } from '@angular/material/dialog';
 
 export class DashboardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private service : CommonService,public dialog: MatDialog) { }
+
+  totalCount : any = 0
 
   ngOnInit(): void {
+    // sessionStorage.clear()
+    this.service.castProduct.subscribe((res:any)=>{
+      console.log(res)
+      this.totalCount = res?.length
+      if(!this.totalCount){
+        let data = JSON.parse(sessionStorage.getItem('userItems')!)
+        this.totalCount = data?.length
+      }
+    })
   }
 
   products = [
