@@ -20,10 +20,10 @@ export class DashboardComponent implements OnInit {
     this.service.castProduct.subscribe((res:any)=>{
       console.log(res)
       this.totalCount = res?.length
-      if(!this.totalCount){
-        let data = JSON.parse(sessionStorage.getItem('userItems')!)
-        this.totalCount = data?.length
-      }
+      // if(!this.totalCount){
+      //   let data = JSON.parse(sessionStorage.getItem('userItems')!)
+      //   this.totalCount = data?.length ? data?.length : 0
+      // }
     })
   }
 

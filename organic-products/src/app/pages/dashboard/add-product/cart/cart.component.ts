@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
 
   totalProducts : any;
   totalCost : number = 0;
-  
+
   constructor(private service: CommonService) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
     //   this.totalProducts = res
     // })
     this.totalProducts = JSON.parse(sessionStorage.getItem('userItems')!)
-    this.totalCost = this.totalProducts?.map((el:any)=> el?.cost).reduce((a:any,b:any) => a + b)
+    this.totalCost = this.totalProducts?.map((el:any)=> el?.cost).reduce((a:any,b:any) => a + b , 0)
   }
 
   clearCart() {
