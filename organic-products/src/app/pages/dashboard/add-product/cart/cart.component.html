@@ -1,75 +1,122 @@
 <div class="container-fluid">
-    <div class="row rounded p-3" style="position: sticky;top:0;z-index:100;background-color: #dfd4d4;;">
-        <div class="col-6">
-            <h3>Shopping Cart :</h3>
-        </div>
-        <div class="col-6 text-end d-flex justify-content-end">
-           <button *ngIf="totalCost" class="btn btn-danger mt-2" type="button" (click)="clearCart()">Clear Cart</button> 
-           <h4 class="ms-3 mt-3">
-            {{totalProducts?.length ? totalProducts?.length : 0}} items
-           </h4> 
-        </div>
-        <div class="col-12 justify-content-end d-flex align-items-baseline mt-3" *ngIf="totalCost">
-            <h4>Total Cost : {{totalCost | currency:'INR'}} </h4>
-         </div>
+  <div
+    class="row rounded p-3"
+    style="position: sticky; top: 0; z-index: 100; background-color: #dfd4d4"
+  >
+    <div class="col-6">
+      <h3>Shopping Cart :</h3>
     </div>
-    <div class="row my-2">
-        <div class="col-12">
-            <div class="card">
-               <div class="card-body d-flex align-items-center">
-                 <p style="width:14.28%;font-weight: 700;font-size:20px">
-                   S.N
-                 </p>
-                 <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Name
-                  </p>
-                  <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Cost
-                  </p>
-                  <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Image
-                  </p>
-                  <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Category
-                  </p>
-                  <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Discount
-                  </p>
-                  <p style="width:14.28%;font-weight: 700;font-size:20px">
-                    Rating
-                  </p>
-               </div>
-            </div>
-        </div>
-        <div class="col-12 my-2" *ngFor="let item of totalProducts;let i = index;">
-            <div class="card">
-               <div class="card-body d-flex align-items-center">
-                 <p style="width:14.28%">
-                     {{i + 1}}
-                 </p>
-                 <p style="width:14.28%">
-                     {{item?.name}}
-                 </p>
-                 <p style="width:14.28%">
-                     {{item?.cost | currency:'INR'}}
-                 </p>
-                 <p style="width:14.28%">
-                     <img [src]="item?.imgUrl" alt="" class="img-fluid" style="width:50px;">
-                 </p>
-                 <p style="width:14.28%">
-                     {{item?.category}}
-                 </p>
-                 <p style="width:14.28%">
-                     {{item?.discount | currency:'INR'}}
-                 </p>
-                 <p style="width:14.28%">
-                     {{item?.review}}
-                 </p>
-               </div>
-            </div>
-        </div>
-        <div class="col-12 text-center" *ngIf="totalProducts?.length == 0 || !totalProducts?.length">
-           <img style="width:600px;" class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfh9odvam9gncuRE3NXLiyaR1LTroFm4RRAQ&usqp=CAU" alt="">
-        </div>
+    <div class="col-6 text-end d-flex justify-content-end">
+      <button
+        *ngIf="totalCost"
+        class="btn btn-danger mt-2"
+        type="button"
+        (click)="clearCart()"
+      >
+        Clear Cart
+      </button>
+      <h4 class="ms-3 mt-3">
+        {{ totalProducts?.length ? totalProducts?.length : 0 }} items
+      </h4>
     </div>
+    <div
+      class="col-12 justify-content-end d-flex align-items-baseline mt-3"
+      *ngIf="totalCost"
+    >
+      <h4>Total Cost : {{ totalCost | currency : "INR" }}</h4>
+    </div>
+  </div>
+  <div class="row my-2">
+    <!-- <div class="col-12">
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <p style="width: 14.28%; font-weight: 500">S.N</p>
+          <p style="width: 14.28%; font-weight: 500">Name</p>
+          <p style="width: 14.28%; font-weight: 500">Cost</p>
+          <p style="width: 14.28%; font-weight: 500">Image</p>
+          <p style="width: 14.28%; font-weight: 500">Category</p>
+          <p style="width: 14.28%; font-weight: 500">Discount</p>
+          <p style="width: 14.28%; font-weight: 500">Rating</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="col-12 my-2 table-responsive">
+      <table class="table">
+        <thead>
+          <th class="px-1">S.N</th>
+          <th class="px-1">Name</th>
+          <th class="px-1">Cost</th>
+          <th class="px-1">Image</th>
+          <th class="px-1">Category</th>
+          <th class="px-1">Discount</th>
+          <th class="px-1">Rating</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of totalProducts; let i = index">
+            <td class="px-1">{{ i + 1 }}</td>
+            <td class="px-1">{{ item?.name }}</td>
+            <td class="px-1">
+              {{ item?.cost | currency : "INR" }}
+            </td>
+            <td class="px-1">
+              <img
+                [src]="item?.imgUrl"
+                alt=""
+                class="img-fluid"
+                style="width: 50px"
+              />
+            </td>
+            <td class="px-1">{{ item?.category }}</td>
+            <td class="px-1">
+              {{ item?.discount | currency : "INR" }}
+            </td>
+            <td class="px-1">
+              {{ item?.review }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <p style="width: 14.28%">
+            {{ i + 1 }}
+          </p>
+          <p style="width: 14.28%">
+            {{ item?.name }}
+          </p>
+          <p style="width: 14.28%">
+            {{ item?.cost | currency : "INR" }}
+          </p>
+          <p style="width: 14.28%">
+            <img
+              [src]="item?.imgUrl"
+              alt=""
+              class="img-fluid"
+              style="width: 50px"
+            />
+          </p>
+          <p style="width: 14.28%">
+            {{ item?.category }}
+          </p>
+          <p style="width: 14.28%">
+            {{ item?.discount | currency : "INR" }}
+          </p>
+          <p style="width: 14.28%">
+            {{ item?.review }}
+          </p>
+        </div>
+      </div> -->
+    </div>
+    <div
+      class="col-12 text-center"
+      *ngIf="totalProducts?.length == 0 || !totalProducts?.length"
+    >
+      <img
+        style="width: 600px"
+        class="img-fluid"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfh9odvam9gncuRE3NXLiyaR1LTroFm4RRAQ&usqp=CAU"
+        alt=""
+      />
+    </div>
+  </div>
 </div>
