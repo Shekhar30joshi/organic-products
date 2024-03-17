@@ -68,12 +68,16 @@
         </p>
       </span>
       <div class="">
-        <button class="btn btn-success" type="button" (click)="addItem(data)">
+        <button
+          class="btn btn-success m-1"
+          type="button"
+          (click)="addItem(data)"
+        >
           <i class="fa fa-solid fa-plus mx-2"></i>Add
         </button>
         <button
           [disabled]="count == 0"
-          class="btn btn-danger ms-4"
+          class="btn btn-danger m-1"
           type="button"
           (click)="removeCount(data)"
         >
